@@ -12,7 +12,7 @@
 		<option value="ACTUALIZAR">ACTUALIZAR</option>
 		<option value="CREAR">CREAR</option>
 	</select><br>
-	<h3>Nombre: </h3><input type="text" name="nombre" required="INTRODUCIR DATO">
+	<h3>Nombre: </h3><input type="text" name="nombre">
 	<h3>Edad: </h3><input type="number" name="edad">
 	<input type="submit" value="Ejecutar Click" name="ejecutor">
 </form>
@@ -43,7 +43,11 @@ echo "TABLA CREADA EXITOSAMENTE";
         			echo "Successfully connected to Oracle.\n";
     				break;
     			case 'ELIMINAR':
-    				# code...
+    				$sql = "DELETE FROM amigos WHERE edad='$edad'";
+					$unir = oci_parse($c, $sql);
+					oci_execute($unir);
+					echo "DATOS ELIMINADOS EXITOSAMENTE";
+        			echo "Successfully connected to Oracle.\n";
     				break;
     			case 'ACTUALIZAR':
     				# code...
